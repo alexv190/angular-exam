@@ -1,0 +1,27 @@
+<ng-container *ngFor="let user of users">
+  <p>
+   
+    <mat-card>
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 {{user.title}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Дополнительная информация
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>{{user.body}}</p>
+              <p><a [routerLink]="['/user/',user.id]">{{user.id}}</a></p>
+              <p><button (click)="navigate(user.id)">Navigate</button></p>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </mat-card>
+  </p>
+</ng-container>

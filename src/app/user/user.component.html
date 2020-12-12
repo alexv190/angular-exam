@@ -1,0 +1,88 @@
+<mat-card>
+  <form class="example-form" [formGroup]="myForm" novalidate>
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>ФИО</mat-label>
+        <input type="text" matInput formControlName="fio" appMandatory />
+        <mat-error *ngIf="myForm.controls?.fio.getError('empty')">
+          Введите ФИО
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" appValidateEmail />
+        <mat-error *ngIf="myForm.controls.email?.getError('wrongEmail')">
+          Некорректный email
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Улица</mat-label>
+        <input type="text" matInput formControlName="street" appMandatory />
+        <mat-error *ngIf="myForm.controls?.street.getError('empty')">
+          Введите улицу
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Дом</mat-label>
+        <input type="text" matInput formControlName="suite" appMandatory />
+        <mat-error *ngIf="myForm.controls?.suite.getError('empty')">
+          Введите дом
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Улица</mat-label>
+        <input type="text" matInput formControlName="city" appMandatory />
+        <mat-error *ngIf="myForm.controls?.city.getError('empty')">
+          Введите город
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Индекс</mat-label>
+        <input type="text" matInput formControlName="zip" appValidateZip />
+        <mat-error *ngIf="myForm.controls?.zip.getError('wrongZip')">
+          Некорректный индекс
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Телефон</mat-label>
+        <input type="text" matInput formControlName="phone" appValidatePhone />
+        <mat-error *ngIf="myForm.controls.phone?.getError('wrongPhone')">
+          Некорректный телефон
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Веб сайт</mat-label>
+        <input type="text" matInput formControlName="web" appValidateWeb />
+        <mat-error *ngIf="myForm.controls.web?.getError('wrongWeb')">
+          Некорректный веб-сайт
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-label
+        >Место работы
+        <p>
+          <span>{{ user?.company?.name }}</span>
+        </p>
+      </mat-label>
+    </p>
+  </form>
+</mat-card>
